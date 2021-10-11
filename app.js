@@ -51,7 +51,7 @@ app.use(passport.session());
 
 //MONGOOSE DATABASE RELATED
 
-mongoose.connect('mongodb://localhost:27017/blog', {
+mongoose.connect('mongodb://localhost:27017/bwblog', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false
@@ -113,7 +113,7 @@ passport.deserializeUser(User.deserializeUser());
 // PASSPORT USER REGISTRATION
 
 // function registerUser(){
-//     User.register({username: 'email', name: 'name'}, 'password', (err, user)=>{
+//     User.register({username: 'email@email', name: 'name'}, 'password', (err, user)=>{
 //         if (err) {
 //             console.log(err)
 //         } else {
@@ -676,7 +676,7 @@ function publish(id, date, onDate) {
                                 pubDate: [date, onDate],
                                 tags: doc.tags,
                                 sponsored: doc.sponsored,
-                                photo: id, //Just id NOT doc.id beacause it needs to be draft id, not post id, draft id is also image name.
+                                photo: doc.id, //Just id NOT doc.id beacause it needs to be draft id, not post id, draft id is also image name.
                                 withPhoto: true,
                             })
                             newPost.save((err, saved) => {
