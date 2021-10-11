@@ -113,7 +113,7 @@ passport.deserializeUser(User.deserializeUser());
 // PASSPORT USER REGISTRATION
 
 // function registerUser(){
-//     User.register({username: 'email@email', name: 'name'}, 'password', (err, user)=>{
+//     User.register({username: 'email@test', name: 'name'}, 'password', (err, user)=>{
 //         if (err) {
 //             console.log(err)
 //         } else {
@@ -676,7 +676,7 @@ function publish(id, date, onDate) {
                                 pubDate: [date, onDate],
                                 tags: doc.tags,
                                 sponsored: doc.sponsored,
-                                photo: doc.id, //Just id NOT doc.id beacause it needs to be draft id, not post id, draft id is also image name.
+                                photo: id, //Just id NOT doc.id beacause it needs to be draft id, not post id, draft id is also image name.
                                 withPhoto: true,
                             })
                             newPost.save((err, saved) => {
@@ -759,6 +759,9 @@ app.listen(process.env.PORT, () => {
     console.log("Server started");
 });
 
+app.use(function(req, res) {
+    res.redirect('/');
+});
 
 //I think everything works, i wanted to add much more functionality to this(like comments, users etc) but i realized i will not use it so i wanted just to finish it asap and make something new. I would say this "project" was a speedrun. Many functions are made just to work with simple solutions, there are probably much more better ways to make them but i just wanted to make this work and finish. Views folder should look better but i was just adding files without special thinking. 
 //But! This is first real website i made. It works, it has functionality, it looks like layout works too so i think its okay :D. It took about three weeks to build this and im aware its probably not even good :D To not say "its not perfect" :D I took just one course on Udemy, for about 10$, it has about 40 hours. I watched it and after i just started this and its finished now.
