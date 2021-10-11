@@ -51,7 +51,7 @@ app.use(passport.session());
 
 //MONGOOSE DATABASE RELATED
 
-mongoose.connect('mongodb://localhost:27017/bwblog', {
+mongoose.connect('mongodb://localhost:27017/blog', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false
