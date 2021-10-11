@@ -1,0 +1,68 @@
+<div class="draftsmain column">
+
+    <% var published=[]%>
+
+    <% inf.forEach((document)=>{%>
+    <%    published.push(document.draftid);%>
+    <%})%>
+
+
+    <!-- <div class="row"> TO JEST WYSZUKIWARKA
+        <form method="POST" action="">
+            <input type="text"><button>Szukaj</button>
+        </form>
+    </div> -->
+
+
+    <% drafts.forEach((draft)=>{ %>
+
+
+    <div class="row">
+
+        <%if (!draft.withPhoto){%>
+        <img src="/images/postimg/nophoto">
+        <% } else {%>
+        <img src="/images/postimg/<%=draft.id%>">
+        <% }%>
+        <div class="draft column">
+            <div class="draftSection">
+
+                <p class="dTitle"><%-(draft.title.length > 1)? draft.title : 'Brak tytułu'%> </p>
+            </div>
+            <% const tDate = new Date() %>
+            <% const eDate = tDate.toISOString() %>
+            <% const minDate = eDate.substring(0,eDate.indexOf("T")); %>
+            <% const dateToShow = new Date(draft.pubDate[0].getTime() - (draft.pubDate[0].getTimezoneOffset() * 60000))%>
+            <% const date = dateToShow.toISOString(); %>
+            <% const dateToPub = date.substring(0,date.indexOf("T"));%>
+            <% const timeToPub = date.substring(date.indexOf("T")+1, date.lastIndexOf(":"));%>
+
+            <div class="draftSection <%=draft.id%>">
+                <input type="date" name="dateToPub" min="<%=minDate%>"
+                    <%- published.includes(draft.id) ? 'value="' + dateToPub + '" disabled' : '' %>>
+                <input type="time" name="timeToPub"
+                    <%- published.includes(draft.id) ? 'value="' + timeToPub + '" disabled' : '' %>>
+                <input type="checkbox" id="ontime" onchange="onTime('<%=draft.id%>')"
+                    <%- ((published.includes(draft.id) && !draft.pubDate[1]) || draft.title.length < 1 || draft.htmlContent.length < 1 || !draft.withPhoto) ? 'disabled' : '' %>
+                    <%- (published.includes(draft.id) && draft.pubDate[1]) ? 'checked' : '' %>>
+
+                <button type="button"
+                    onclick="
+                    <%- (published.includes(draft.id) && !draft.pubDate[1])  ? 'unpublish' : 'publish' %>('<%=draft.id%>')"
+                    <%- (draft.title.length < 1 || draft.htmlContent.length < 1 || !draft.withPhoto) ? 'disabled' : '' %>>
+                    <%- (published.includes(draft.id) && !draft.pubDate[1]) ? 'Cofnij publikację' : 'Publikuj' %>
+
+                </button>
+
+
+                <a href="edit/<%=draft.id%>"><button type="button"
+                        <%- published.includes(draft.id) && 'disabled' %>>Edytuj</button></a>
+                <button type="button" onclick="remove('<%=draft.id%>')">Usuń</button>
+            </div>
+        </div>
+
+        <div class="draft status" id="<%=draft.id%>"
+            <%- (published.includes(draft.id) && !draft.pubDate[1])  ? 'style="background-color: aqua;">Opublikowano' : (draft.title.length < 1 || draft.htmlContent.length < 1 || !draft.withPhoto) ? 'style="background-color: red;">Do uzupełnienia' : 'style="background-color: orange;">Czeka na publikacje' %>
+        </div> 
+    </div> <%})%> 
+ </div>

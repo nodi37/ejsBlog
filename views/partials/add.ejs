@@ -1,0 +1,60 @@
+<div class="postAdd column">
+    <form id="photo" name="photo">
+        <p>Wybierz zdjęcie główne: </p> <input id="image-file" type="file" name="photo" accept="image/*">
+    </form>
+    <p id="photosaved"></p>
+
+    <form id="newPost" name="newPost" method="post">
+        <p>Tytuł:</p>
+        <input type="text" name="title">
+        <p>Treść posta:</p>
+        <!-- <textarea name="post" type="text" id="post"></textarea> -->    
+        <div id="editor"></div>
+        <p>Sponsorowany? <input type="checkbox" id="sponsored" name="sponsored"></p>
+        <p>Wybierz tagi:<select name="tags" id="tag" onchange="tagHandler(1)">
+                <option value="default" selected></option>
+                <% tags.forEach((tag)=>{ %>
+                <option><%=tag.tag %></option>
+                <% });%>
+            </select></p>
+        <p id="selectedtags"></p>
+        <button type="button" onclick="saveDraft()">Zapisz</button>
+        <p id="autosave"></p>
+    </form>
+    <script>
+        var toolbarOptions = [
+            ['bold', 'italic', 'underline', 'strike'], // toggled buttons
+            ['blockquote', 'code-block'],
+
+            [{
+                'header': 1
+            }, {
+                'header': 2
+            }], // custom button values
+            [{
+                'list': 'ordered'
+            }, {
+                'list': 'bullet'
+            }],
+            [{
+                'script': 'sub'
+            }, {
+                'script': 'super'
+            }], // superscript/subscript
+            ['link', 'image', 'video', 'formula'], // add's image support
+            [{
+                'color': []
+            }, {
+                'background': []
+            }], // dropdown with defaults from theme
+
+            ['clean'] // remove formatting button
+        ];
+        var quill = new Quill('#editor', {
+            modules: {
+                toolbar: toolbarOptions
+            },
+            theme: 'snow'
+        });
+    </script>
+</div>

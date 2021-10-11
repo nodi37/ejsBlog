@@ -1,0 +1,130 @@
+body,
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+
+.column {
+    height: 100%;
+}
+
+.bar {
+    margin-bottom: 0px !important;
+}
+
+
+.menu {
+    width: 100%;
+    justify-content: start;
+    align-items: stretch;
+    flex: 1;
+}
+
+.loginbox {
+    margin-top: 10%;
+    height: auto;
+    width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.menuItems {
+    min-width: 150px;
+    background-color: #293042d2;
+    border-radius: 0px 0px 0px 10px;
+    padding: 8px;
+}
+
+.itemView {
+    flex-grow: 1;
+    background-color: rgb(155, 155, 155);
+    border-radius: 0px 0px 10px 0px;
+    padding: 15px;
+}
+
+.menuItems a {
+    color: white;
+    text-decoration: none;
+    font-size: medium;
+    display: flex;
+    padding: 5px 0px;
+    border-bottom: none;
+    border-radius: 2px;
+}
+
+.menuSection {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 0px 5px;
+    align-items: center;
+}
+
+.menuSection p {
+    padding: 0px 0px 0px 5px;
+}
+
+.active {
+    background-color: #548CA8;
+}
+
+.logout {
+    background-color: crimson;
+}
+
+.postAdd,
+.postAdd form {
+    width: 100%;
+}
+
+#editor {
+    overflow: hidden;
+}
+
+#selectedtags p {
+    display: inline;
+}
+
+.draftsmain {
+    width: 100%;
+}
+
+.draftsmain .draft {
+    height: 64px;
+    width: 100%;
+    border: 1px solid;
+    padding: 5px;
+    margin-bottom: 5px
+}
+
+.draftsmain img {
+    height: 64px;
+    width: auto;
+}
+
+.status {
+    width: 150px !important;
+}
+
+.tags {
+    margin: 5px;
+}
+
+.tagform {
+    margin: 5px;
+}
+
+.tagname {
+    padding: 2px;
+    border: 1px solid black;
+    margin-right: 2px;
+    border-radius: 5px;
+}
+
+.widget {
+    height: 100px;
+    width: 200px;
+    background-color: cyan;
+    border-radius: 10px;
+    padding: 10px;
+}

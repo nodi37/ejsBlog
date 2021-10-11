@@ -1,0 +1,16 @@
+<%- include('./partials/adminhead'); -%>
+
+<body>
+    <div class="card column loginbox">
+        <div class="cardtitle">Logowanie</div>
+        <div class="cardcontent justify">
+            <form class="search" action="/login" method="POST">
+                <input class="searchinput" type="email" name="username" placeholder="Username...">
+                <input class="searchinput" type="password" name="password" placeholder="Password...">
+                <button type="submit">Zaloguj</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

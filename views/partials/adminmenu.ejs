@@ -1,0 +1,47 @@
+<body <%- (side==="edit") ? 'onload="onLoad()"' : ""%>>
+    <div class="column">
+        <div class="bar">
+            <div class="element">
+                <p class="logotext">Norbert Bloguje</p>
+                <i class="fas fa-blog logoicon"></i>
+            </div>
+        </div>
+
+        <div class="row menu">
+            <div class="menuItems column">
+                <a <%- (side=="dashboard") ? 'class="active"' : '' %>href="/admin/dashboard">
+                    <div class="menuSection">
+                        <i class="fas fa-chart-line"></i>
+                        <p>Dashboard</p>
+                    </div>
+                </a>
+
+                <a <%- (side=="add") ? 'class="active"' : '' %> href="/admin/add">
+                    <div class="menuSection">
+                        <i class="fas fa-paste"></i>
+                        <p>Dodaj post...</p>
+                    </div>
+                </a>
+
+                <a <%- (side=="tags") ? 'class="active"' : '' %> href="/admin/tags">
+                    <div class="menuSection">
+                        <i class="fas fa-hashtag"></i>
+                        <p>Tagi</p>
+                    </div>
+                </a>
+
+                <a <%- (side=="drafts") ? 'class="active"' : '' %> href="/admin/drafts">
+                    <div class="menuSection">
+                        <i class="fas fa-drafting-compass"></i>
+                        <p>Posty</p>
+                    </div>
+                </a>
+
+                <a class="logout" href="/logout">
+                    <div class="menuSection">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <p>Wyloguj</p>
+                    </div>
+                </a>
+            </div>
+            <div class="itemView">

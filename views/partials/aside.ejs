@@ -1,0 +1,64 @@
+<div class="aside column">
+    <div class="card column">
+
+        <div class="cardtitle">
+            O mnie
+        </div>
+
+        <div class="cardcontent aboutme justify column">
+            <img src="/logo.jpg" alt="To ja">
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Fugit
+                explicabo, dolore
+                tenetur dolores, modi error porro repellendus dolorum quae laborum doloremque voluptas,
+                ut
+                culpa
+                blanditiis animi autem! Aliquid, accusamus! Sapiente?
+            </p>
+        </div>
+    </div>
+
+
+
+    <div class="card column">
+        <div class="cardtitle">Szukaj na blogu</div>
+        <div class="cardcontent justify">
+
+            <form class="search" action="/" method="POST">
+
+                <input class="searchinput" type="search" name="search" placeholder="Wpisz słowo..." required>
+                <button type="submit">Szukaj</button>
+
+            </form>
+        </div>
+    </div>
+
+
+    <div class="card column">
+        <div class="cardtitle">
+            Tagi
+        </div>
+        <div class="tags">
+            <% tags.forEach((tag)=>{%>
+            <p class="tag"><a href="/tag/<%=tag.tag%>">#<%=tag.tag%></a></p>
+            <% })%>
+        </div>
+    </div>
+
+    <div class="card column">
+        <div class="cardtitle">This function is disabled. Plase use contact form on <a href="https://nbtb.eu">nbtb.eu</a></div>
+        <div class="cardcontent justify">
+
+            <form class="contact" action="/contact" method="POST" onsubmit="onSend()">
+
+                <textarea class="message" name="message" rows="8" placeholder="Twoja wiadomość..." required></textarea>
+                <p class="mail">Twój adres email:</p>
+                <input class="emailinput" type="email" name="email" placeholder="Adres email" required>
+                <button type="submit">Wyślij</button>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

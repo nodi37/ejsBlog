@@ -1,0 +1,62 @@
+<div class="newsmark">
+    <p>Nowe na blogu</p>
+</div>
+<div class="top row">
+
+    <% const [post0, post1, post2] = newPosts; %>
+
+    <% var description = []; %>
+
+    <% newPosts.forEach((post, index) => { %>
+   
+    <% const firstLine = post.htmlContent.substring(post.htmlContent.indexOf("<p>") + 3, 250); %>
+        
+    <% const customLine = (firstLine.indexOf("<")===-1) ? firstLine.substring(0, 250) : firstLine.substring(0, firstLine.indexOf("<")) %>
+
+    <% const secondLine = customLine.substring(0, customLine.lastIndexOf(" ")); %>
+
+    <% description[index] = secondLine + '...' %>
+
+    <%});%>
+
+    <div class="left column" style="background-image: url('/images/postimg/<%=post0.photo%>') !important">
+        <div class="pdescription column">
+            <a
+                href="/post/<%=post0.title%>_<%-post0.pubDate[0].toISOString().substring(post0.pubDate[0].toISOString().lastIndexOf("-")+1, post0.pubDate[0].toISOString().lastIndexOf(":")) %>">
+                <p class="ptitle"><%=post0.title%></p>
+                <p class="pcontent"><%=description[0]%></p>
+                <p class="pprops"><%=post0.author%> | <%-post0.pubDate[0].toLocaleDateString()%>
+                    <%-post0.sponsored ? " | sponsorowany" : ""%></p>
+            </a>
+        </div>
+    </div>
+
+    <div class="right column">
+
+        <div class="featured ftop column" style="background-image: url('/images/postimg/<%=post1.photo%>') !important">
+            <div class="pdescription column">
+                <a
+                    href="/post/<%=post1.title%>_<%-post1.pubDate[0].toISOString().substring(post1.pubDate[0].toISOString().lastIndexOf("-")+1, post1.pubDate[0].toISOString().lastIndexOf(":")) %>">
+                    <p class="sm-ptitle"><%=post1.title%></p>
+                    <p class="sm-pprops"><%=post1.author%> | <%-post1.pubDate[0].toLocaleDateString()%>
+                        <%-post1.sponsored ? " | sponsorowany" : ""%></p>
+                </a>
+            </div>
+        </div>
+
+        <div class="featured fbottom column"
+            style="background-image: url('/images/postimg/<%=post2.photo%>') !important">
+            <div class="pdescription column">
+                <a
+                    href="/post/<%=post2.title%>_<%-post2.pubDate[0].toISOString().substring(post2.pubDate[0].toISOString().lastIndexOf("-")+1, post2.pubDate[0].toISOString().lastIndexOf(":")) %>">
+                    <p class="sm-ptitle"><%=post2.title%></p>
+                    <p class="sm-pprops"><%=post2.author%> | <%-post2.pubDate[0].toLocaleDateString()%>
+                        <%-post2.sponsored ? " | sponsorowany" : ""%></p>
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="newsmark">
+</div>

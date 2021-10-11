@@ -1,0 +1,11 @@
+<div class="maincontent card column">
+    <% results.forEach(result=>{ %>
+    <a
+        href="/post/<%=result.title%>_<%-result.pubDate[0].toISOString().substring(result.pubDate[0].toISOString().lastIndexOf("-")+1, result.pubDate[0].toISOString().lastIndexOf(":")) %>">
+        <div class="row sresult">
+            <div class="cover" style="background-image:url('/images/postimg/<%= result.photo %>')"></div>
+            <p><%= result.title %></p>
+        </div>
+    </a>
+    <% })%>
+</div>

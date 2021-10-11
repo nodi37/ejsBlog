@@ -1,0 +1,14 @@
+<div class="column">
+<div class="row tags">
+<% tags.forEach((tag)=>{ %>
+<p class="tagname"><%=tag.tag%><button type="button" onclick="removeTag('<%=tag.id%>')">Usuń</button></p>
+<% }) %>
+</div>
+<form action="/admin/tag" method="post" class="tagform" id="tagform">
+    <label for="tag">Nazwa taga:</label><input type="text" name="tag" id="tag">
+<button type="button" onclick="isEmpty()">Dodaj</button>
+<p id="inf"></p>
+</form>
+</div>
+
+

@@ -1,0 +1,92 @@
+<script>
+    function onLoad(){
+    const tagList = document.getElementById("selectedtags");
+    var tagListArray = []
+
+
+    <% post.tags.forEach((tag)=> {            %>
+        choosenTags.push('<%=tag%>')
+    <% }) %>
+
+
+    choosenTags.forEach((tag, index) => {
+        tagListArray.push(' <p>' + tag + '</p><button type="button" onclick="tagHandler(2,' + index +
+            ')">Usuń</button>');
+    });
+
+    if (tagListArray.length > 0) {
+        tagList.innerHTML = "Wybrane tagi: " + tagListArray;
+    } else {
+        tagList.innerHTML = "";
+    }
+}
+</script>
+<div class="postAdd column">
+    <form id="photo" name="photo">
+        <p><%- post.withPhoto ? "Zdjęcie zostało już dodane ale możesz wybrać nowe:" : "Wybierz zdjęcie główne:"%></p>
+        <input id="image-file" type="file" name="photo" accept="image/*">
+    </form>
+    <p id="photosaved"></p>
+
+    <form id="newPost" name="newPost" method="post">
+        <p>Tytuł:</p>
+        <input type="text" name="title" <%- post.title ? 'value="' + post.title + '"' : "" %>>
+        <p>Treść posta:</p>
+        <!-- <textarea name="post" type="text" id="post"><%- post.htmlContent ? post.htmlContent : "" %></textarea> -->
+        <div id="editor"></div>
+        <p>Sponsorowany? <input type="checkbox" id="sponsored" name="sponsored" <%= post.sponsored ? "checked" : "" %>>
+        </p>
+        <p>Wybierz tagi:
+            <select name="tags" id="tag" onchange="tagHandler(1)">
+                <option value="default" selected></option>
+                <% tags.forEach((tag, index)=> {            %>
+                <%  if (!post.tags.includes(tag.tag)){      %>
+                <option><%=tag.tag%></option>
+                <% }}) %>
+            </select></p>
+        <p id="selectedtags"></p>
+        <button type="button" onclick="updateDraft('<%-post.id%>')">Zapisz</button>
+        <p id="autosave"></p>
+    </form>
+    <script>
+        var toolbarOptions = [
+            ['bold', 'italic', 'underline', 'strike'], // toggled buttons
+            ['blockquote', 'code-block'],
+
+            [{
+                'header': 1
+            }, {
+                'header': 2
+            }], // custom button values
+            [{
+                'list': 'ordered'
+            }, {
+                'list': 'bullet'
+            }],
+            [{
+                'script': 'sub'
+            }, {
+                'script': 'super'
+            }], // superscript/subscript
+            ['link', 'image', 'video', 'formula'], // add's image support
+            [{
+                'color': []
+            }, {
+                'background': []
+            }], // dropdown with defaults from theme
+
+            ['clean'] // remove formatting button
+        ];
+        var quill = new Quill('#editor', {
+            modules: {
+                toolbar: toolbarOptions
+            },
+            theme: 'snow'
+        });
+
+        <% const content = JSON.parse(post.htmlContent).ops %>
+        quill.setContents(<%-JSON.stringify(content)%>);
+
+    </script>
+</div>
+

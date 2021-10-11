@@ -1,0 +1,502 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,500;1,600;1,700&family=Montserrat&family=Style+Script&display=swap');
+
+@media only screen and (max-width: 1280px) {
+
+    .aside {
+        min-width: 368px;
+    }
+
+    .maincontent {
+        min-width: 860px;
+        margin: 0px 0px !important;
+    }
+
+    .bottom {
+        flex-wrap: wrap;
+        margin: 0px 20px;
+    }
+
+    .left {
+        min-width: 860px;
+        min-height: 300px;
+        margin: 0px 0px 5px 0px !important;
+    }
+
+    .right {
+        min-width: 418px;
+    }
+
+    .featured {
+        min-height: 300px;
+    }
+
+    .top {
+        flex-wrap: wrap;
+        margin: 0px 20px 5px 20px !important;
+        min-height: 1000px;
+    }
+
+    .aside {
+        flex-direction: row !important;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .aside .card {
+        min-width: 300px;
+        flex: 1;
+        margin-bottom: 10px !important;
+    }
+
+}
+
+@media only screen and (max-width: 900px) and (min-width: 601px) {
+    .left {
+        min-width: 450px !important;
+    }
+
+    .maincontent {
+        min-width: 450px !important;
+    }
+
+    .right {
+        min-width: 450px !important;
+    }
+
+    .aside {
+        min-width: 450px !important;
+    }
+
+}
+
+
+@media only screen and (max-width: 600px) {
+    .left {
+        min-width: 300px !important;
+    }
+
+    .maincontent {
+        min-width: 300px !important;
+    }
+
+    .right {
+        min-width: 300px !important;
+    }
+
+    .aside {
+        min-width: 320px !important;
+    }
+
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("background.png");
+    width: 100%;
+}
+
+.bar {
+    display: flex;
+    background: rgba(51, 66, 87, 0.88);
+    min-height: 65px;
+    height: 65px;
+    width: 100%;
+    margin-bottom: 30px;
+    justify-content: center;
+}
+
+.bar a {
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.element {
+    display: flex;
+    max-width: 1260px;
+    width: 100%;
+    align-items: center;
+    justify-content: end;
+}
+
+.logoicon {
+    color: white;
+    font-size: 2em;
+    margin: 0 10px;
+}
+
+.logotext {
+    color: white;
+    font-family: 'IBM Plex Sans', sans-serif;
+    font-weight: 500;
+    font-size: 2em;
+    /* font-style: italic; */
+    /* PADDING ONLY WITH ICON FISH LOGO */
+    padding-bottom: 2px;
+}
+
+.newsmark {
+    border-bottom: solid 2px #21242e;
+    margin-bottom: 10px;
+    color: #21242e;
+    font-size: 1.5em;
+    /* Alternatywny kolor: darkslategrey */
+    /* To niżej testowo */
+    display: flex;
+    width: 100%;
+    align-self: center;
+}
+
+
+.top {
+    margin-bottom: 40px;
+    height: 560px;
+}
+
+.top a {
+    text-decoration: none;
+}
+
+.pdescription {
+    margin: auto 0 0 0;
+    width: 100%;
+    padding: 20px;
+    background-color: rgba(71, 96, 114, 0.9);
+    /* max-height: 40%; */
+}
+
+.ptitle {
+    color: white;
+    font-size: 2em;
+    margin-bottom: 10px;
+}
+
+.pcontent {
+    color: lightgray;
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+.pprops {
+    color: gray;
+    font-size: 0.75em;
+}
+
+
+.sm-ptitle {
+    color: white;
+    font-size: 1em;
+    margin-bottom: 10px;
+}
+
+.sm-pprops {
+    color: gray;
+    font-size: 0.75em;
+}
+
+
+.bottom {
+    margin-bottom: 40px;
+    align-items: flex-start;
+}
+
+.bottom a {
+    text-decoration: none;
+    color: black;
+}
+
+.articlecard {
+    border-radius: 15px;
+    margin-bottom: 40px;
+}
+
+.articlecard p.pcontent {
+    text-align: justify;
+}
+
+.atop {
+    height: 300px;
+    background-image: url("logo2.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.abottom {
+    text-align: center;
+}
+
+.pages {
+    justify-content: space-between;
+}
+
+.pages button {
+    background-color: transparent;
+    border: solid 2px #548CA8;
+    color: #548CA8;
+    border-radius: 2px;
+    padding: 10px 15px;
+    font-weight: bold;
+}
+
+.acSide {
+    border: solid 2px #ffae00 !important;
+    color: #ffae00 !important;
+}
+
+.pages button:disabled {
+    border: solid 2px #4141415b !important;
+    color: #4141415b !important;
+}
+
+
+.pagenum button {
+    margin-right: 5px;
+}
+
+.ftop {
+    margin-bottom: 5px;
+    flex: 1;
+}
+
+.fbottom {
+    flex: 1;
+}
+
+.logo {
+    height: 80%;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.maincontainer {
+    display: flex;
+    align-items: center;
+}
+
+
+
+.content {
+    max-width: 1260px;
+    width: 100%;
+}
+
+.left {
+    flex: 2;
+    margin-right: 5px;
+    background-image: url("logo2.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.featured {
+    background-image: url("logo2.jpg");
+    background-size: cover;
+    background-position: center;
+}
+
+.right {
+    flex: 1;
+    align-items: stretch;
+}
+
+
+.maincontent {
+    flex: 2;
+    margin-right: 40px;
+    padding: 30px 60px !important;
+    margin-bottom: 30px !important;
+
+
+    /* DODAĆ DO ELEMENTOW TYPU CARD  */
+    box-shadow: 0 0 1em lightgray;
+    background-color: white;
+
+}
+
+.aside {
+    flex: 1;
+}
+
+.card {
+    margin-bottom: 40px;
+    padding: 20px;
+    /* TESTING */
+    box-shadow: 0 0 1em lightgray;
+    background-color: white;
+    border-radius: 15px;
+}
+
+.cardtitle {
+    border-bottom: solid 2px #21242e;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.justify {
+    text-align: justify;
+}
+
+.aboutme img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 5px;
+}
+
+.partners img {
+    height: 50px;
+    width: auto;
+    background-color: lightslategrey;
+    margin: 10px;
+    border-radius: 50px;
+    padding: 8px;
+}
+
+.search {
+    width: 100%;
+}
+
+.searchinput {
+    width: 100%;
+    height: auto;
+    border: solid 1px lightgray;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 2px;
+}
+
+
+.search button {
+    width: 100%;
+    background-color: #548CA8;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    padding: 10px;
+}
+
+.contact {
+    width: 100%;
+}
+
+.message {
+    width: 100%;
+    height: auto;
+    border: solid 1px lightgray;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 2px;
+    resize: vertical;
+}
+
+p.mail {
+    margin: 5px 0px;
+    font-size: small;
+}
+
+.contact button {
+    width: 100%;
+    background-color: #548CA8;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    padding: 10px;
+}
+
+.emailinput {
+    width: 100%;
+    height: auto;
+    border: solid 1px lightgray;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 2px;
+}
+
+
+.tag {
+    margin: 5px;
+}
+
+.footer {
+    background-color: #334257;
+    /* #21242e; */
+    color: gray;
+    height: 150px;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.tags {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tags a {
+    text-decoration: none;
+    color: black;
+}
+
+.artDiv img {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.article {
+    text-align: justify;
+}
+
+.artDiv h1 {
+    margin-bottom: 0px;
+    margin-top: 20px;
+    text-align: left;
+}
+
+.artDiv h1:first-of-type {
+    margin-bottom: 20px;
+    margin-top: 10px;
+    text-align: left;
+}
+
+
+.artDiv h2 {
+    margin: 10px 0px;
+    text-align: left;
+}
+
+.sresult {
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 10px;
+    height: auto;
+    width: 100%;
+    border: 1px solid;
+}
+
+.sresult .cover {
+    height: 50px;
+    min-width: 10%;
+    background-size: cover;
+    margin-right: 10px;
+}
+
+.backButton {
+    margin-top: 20px;
+    width: 100px;
+}

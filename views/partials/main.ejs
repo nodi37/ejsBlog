@@ -1,0 +1,86 @@
+<div class="maincontent card column">
+
+    <% const sidesArray=[]; %>
+    <%  if (sides < 5) {%>
+    <%    for (let i = 1; i <= sides; i++) {%>
+    <%        sidesArray.push((i == side) ? [i, true] : [i, false])%>
+    <%    }%>
+    <%  } else if (side + 2 >= sides) {%>
+    <%      for (let i = -4; i < 1; i++) {%>
+    <%         const num = sides + i;%>
+    <%          sidesArray.push((num == side) ? [num, true] : [num, false])%>
+    <%      }%>
+    <%  } else if (side > 3) {%>
+    <%       for (let x = -2; x < 3; x++) {%>
+    <%          sidesArray.push((x == 0) ? [side, true] : [side + x, false]);%>
+    <%      }%>
+    <%   } else {%>
+    <%       for (let y = -5; y < 0; y++) {%>
+    <%           const num = 6 + y;%>
+    <%           sidesArray.push((num == side) ? [num, true] : [num, false]);%>
+    <%       }%>
+    <%   }%>
+    <% posts.forEach(function(post){%>
+    <% const {title,htmlContent,author,pubDate, sponsored, photo} = post;%>
+    <% const firstLine = htmlContent.substring(htmlContent.indexOf("<p>") + 3, 250); %>
+    <% const customLine = (firstLine.indexOf("<")===-1) ? firstLine.substring(0, 250) : firstLine.substring(0, firstLine.indexOf("<")) %>
+    <% const secondLine = customLine.substring(0, customLine.lastIndexOf(" ")); %>
+    <% const description = secondLine + '...' %>
+
+    <div class="articlecard column">
+        <div class="atop" style="background-image: url(/images/postimg/<%=photo%>) !important;"></div>
+        <div class="abottom">
+            <div class="pdescription column">
+                <a href="/post/<%=title%>_<%-pubDate[0].toISOString().substring(pubDate[0].toISOString().lastIndexOf("-")+1, pubDate[0].toISOString().lastIndexOf(":")) %>">
+                    <p class="ptitle"><%=title%></p>
+                    <p class="pcontent">
+                        <%-description %>
+                    </p>
+                    <p class="pprops"><%=author%> | <%-pubDate[0].toLocaleDateString()%>
+                        <%-sponsored ? " | sponsorowany" : ""%></p>
+                </a>
+            </div>
+
+        </div>
+    </div>
+    <%})%>
+
+
+    <div class="pages row">
+
+        <% sidesArray.forEach((side,index) => { %>
+        <% const [number, active] = side; %>
+        <% var prevButton; %>
+        <% if (index==0 && active) { %>
+        <% prevButton = '<button class="leftarrow" disabled><i class="fas fa-arrow-left"></i></button>';%>
+        <% } else { %>
+        <% prevButton = '<a href="/page/' + (number - 1) + '"><button class="leftarrow"><i class="fas fa-arrow-left"></i></button></a>';%>
+        <% } %>
+        <%-active ? prevButton : ""%>
+        <% });%>
+
+
+        <div class="pagenum">
+            <% sidesArray.forEach(side => { %>
+            <% const [number, active] = side; %>
+            <a href="/page/<%=number%>">
+                <button <%-active ? "class='acSide'" : ""%> type="button"><%=number%></button>
+            </a>
+            <% })%>
+        </div>
+
+
+        <% sidesArray.forEach((side,index) => { %>
+        <% const [number, active] = side; %>
+        <% var nextButton; %>
+        <% if (index==(sidesArray.length-1) && active) { %>
+        <% nextButton = '<button class="rightarrow" disabled><i class="fas fa-arrow-right"></i></button>';%>
+        <% } else { %>
+        <% nextButton = '<a href="/page/' + (number + 1) + '"><button class="rightarrow"><i class="fas fa-arrow-right"></i></button></a>';%>
+        <% } %>
+        <%-active ? nextButton : ""%>
+        <% });%>
+
+    </div>
+
+</div>
