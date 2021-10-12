@@ -484,8 +484,8 @@ app.route('/admin/:side')
             draftid: post.id
         }, (err, doc) => {
             if (!_.isEmpty(doc)) {
-                if (!err && doc.draftid > 1) {
-                    delPost(doc.draftid)
+                if (!err) { 
+                    delPost(doc.draftid) 
                 } else {
                     console.log("Błąd app.js:390, usuwanie opublikowanego posta: " + err)
                 }
@@ -603,7 +603,6 @@ app.get('/logout', function (req, res) {
 
 //////////////////////////////////Unpublish post function///////////////////////////////
 function delPost(draftid) {
-
     return new Promise((resolve, reject) => {
         const now = new Date()
         Information.findOneAndDelete({
