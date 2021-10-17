@@ -73,16 +73,15 @@ function saveDraft() {
         }).done(async function (response) {
             if (response.status === 201) {
                 if (photo.length > 0) {
-                    let messid = await addPhoto(response.id);
-                    console.log(messid)
-                    autosave.innerHTML = "Zapisano, przejdź do sekcji post aby opublikować";
+                    let photo = await addPhoto(response.id);
+                    alert("Zdjęcie: " + photo.statusText + " Zapisano, przejdź do sekcji post aby opublikować");
 
                 } else {
-                    autosave.innerHTML = "Zapisano. Dodaj zdjęcie przed publikacją";
+                    alert("Zapisano. Dodaj zdjęcie przed publikacją");
                 };
 
             } else {
-                autosave.innerHTML = "Wystąpił błąd: " + response;
+                alert("Wystąpił błąd: " + response);
             }
         });
     } else {
