@@ -70,10 +70,11 @@ function saveDraft() {
             url: '/admin/add',
             type: 'POST',
             data: data
-        }).done(function (response) {
+        }).done(async function (response) {
             if (response.status === 201) {
                 if (photo.length > 0) {
-                    addPhoto(response.id);
+                    let messid = await addPhoto(response.id);
+                    console.log(messid)
                     autosave.innerHTML = "Zapisano, przejdź do sekcji post aby opublikować";
 
                 } else {
@@ -91,30 +92,38 @@ function saveDraft() {
 }
 
 function addPhoto(id) {
-    const photo = document.getElementById("image-file").files[0];
-    const formData = new FormData();
-    formData.append("photo", photo);
-    formData.append("name", id)
-    fetch('/admin/add/img', {
-        method: "POST",
-        body: formData
-    });
+    return new Promise((resolve, reject) => {
+        const photo = document.getElementById("image-file").files[0];
+        const formData = new FormData();
+        formData.append("photo", photo);
+        formData.append("name", id)
+        fetch('/admin/add/img', {
+            method: "POST",
+            body: formData
+        }).then(function (response) {
+            console.log(response)
+            resolve(response);
+        }).catch(function (err) {
+            console.log(`Error: ${err}`)
+            reject(err);
+        });;
+    })
 
 }
 
-var imageHandler = function(image, callback) {
+var imageHandler = function (image, callback) {
     var formData = new FormData();
     formData.append('image', image, image.name);
-  
+
     var xhr = new XMLHttpRequest();
     xhr.open('POST', '/xd', true);
-    xhr.onload = function() {
-      if (xhr.status === 200) {
-        callback(xhr.responseText);
-      }
+    xhr.onload = function () {
+        if (xhr.status === 200) {
+            callback(xhr.responseText);
+        }
     };
     xhr.send(formData);
-  };
+};
 
 
 //ADD SIDE END
