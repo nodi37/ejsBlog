@@ -209,10 +209,14 @@ body {
 }
 
 .bottom a {
+    text-decoration: none;
+    color: black;
+}
+.article a {
     text-decoration: underline;
     color: black;
 }
-.bottom a:hover {
+.article a:hover {
     color: cyan;
 }
 
